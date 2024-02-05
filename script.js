@@ -1,11 +1,4 @@
-// https://randomapi.com/
-// JYAQ-SBR6-IYDK-D5WT
-
-// let api = "JYAQ-SBR6-IYDK-D5WT";
-// let url = "https://dummyjson.com/users"
-
 fetch("https://dummyjson.com/users")
-// fetch("${url}")
 .then(response => response.json())
 .then((data) => {
     // console.log(data.users[2].lastName)
@@ -32,25 +25,36 @@ fetch("https://dummyjson.com/users")
     // hideFirstElement.style.visibility = "hidden";
 
     // console.log(img, "hello") 
-})
 
-
-const carousel = document.querySelector(".carousel");
-const arrowBtns = document.querySelectorAll(".wrapper span");
-const firstCardWidth = carousel.querySelector(".card").offsetWidth;
-
-let isDragging = false, startX, startScrollLeft;
 
 // Add event listeners for the arrow buttons to scroll the carousel left and right
 
-arrowBtns.forEach(btn =>{
-const firstCardWidth = carousel.querySelector(".card").offsetWidth;
-
-    btn.addEventListener("click", ()=>{
-        console.log(btn.id);
-        carousel.scrollLeft += btn.id === "left" ? -firstCardWidth : firstCardWidth;
+    const card = document.querySelectorAll(".card");
+    const firstCardWidth = document.querySelector(".card").offsetWidth;
+    const arrowBtns = document.querySelectorAll(".wrapper span");
+    arrowBtns.forEach(btn =>{
+        // const firstCardWidth = carousel.querySelector(".card").offsetWidth;
+        
+            btn.addEventListener("click", ()=>{
+                console.log(btn.id);
+                carousel.scrollLeft += btn.id === "left" ? -firstCardWidth : firstCardWidth;
+                carousel.scrollLeft = carousel.scrollLeft + (btn.id === "left" ? -firstCardWidth : firstCardWidth);
+            })
+            // if(card.length) {
+                
+                // }
     })
-} )
+})
+
+// slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 1
+
+
+
+
+const carousel = document.querySelector(".carousel");
+
+let isDragging = false, startX, startScrollLeft;
+
 const dragStart = (e)=>{
     isDragging = true;
     carousel.classList.add("dragging");
@@ -73,3 +77,4 @@ const dragStop = () => {
 carousel.addEventListener("mousedown", dragStart);
 carousel.addEventListener("mousemove", dragging);
 document.addEventListener("mouseup", dragStop);
+
