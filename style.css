@@ -20,14 +20,16 @@ body{
     
 }
 .carousel{
-    /* display: grid; */
-    display: flex;
-    /* grid-auto-flow: column; */
-    /* grid-template-columns: calc((100% / 2) - 12px); */
+    width: 100%;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: calc((100% / ));
+    /* grid-template-columns: 20fr 1fr 1fr; */
     gap: 16px;    
     overflow: hidden;
-    /* padding: 1rem; */
-    /* background-color: red; */
+    transition: all ease-in-out 1000s;
+
+
 
 }
 .carousel :where(.card, .img){
@@ -53,6 +55,7 @@ body{
     /* text-align: center; */
     padding: 1rem 2rem;
     border-radius: 8px;
+    transition: all ease-in-out 1000s;
 }
 .card .img {
     background-color: #8B53FF;
