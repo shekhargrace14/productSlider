@@ -1,12 +1,14 @@
 fetch("https://dummyjson.com/users")
 .then(response=>response.json())
 .then((data) =>{
-    // console.log(data)
+    // data.user.slice
+    console.log()
 
+    const nerArr = data.users.slice(0,10);
     const carousel = document.querySelector(".carousel");
     // console.log(carousel);
 
-    data.users.map((value)=>{
+    nerArr.map((value)=>{
         // console.log(value.address)
 
         carousel.insertAdjacentHTML("beforeend",`
@@ -49,10 +51,11 @@ fetch("https://dummyjson.com/users")
             // if(carousel.scrollLeft === )
                 
         
-            console.log(carousel.offsetWidth, "offsetWidth Display")
-            console.log(carousel.scrollWidth, "scrollWidth total Width")
-            console.log(carousel.scrollLeft, "scrollLeft")
-            if(carousel.offsetWidth + carousel.scrollLeft == carousel.scrollWidth){
+            console.log(carousel.scrollLeft + carousel.offsetWidth + 5 , ":", carousel.scrollWidth )
+            // console.log(carousel.offsetWidth, "offsetWidth Display")
+            // console.log(carousel.scrollWidth, "scrollWidth total Width")
+            // console.log(carousel.scrollLeft, "scrollLeft")
+            if(carousel.offsetWidth + carousel.scrollLeft + 5  > carousel.scrollWidth){
                 rightArrow.style.display = "none";
             }else{
                 rightArrow.style.display = "block";
